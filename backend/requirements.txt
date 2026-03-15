@@ -1,0 +1,46 @@
+# Aurora Window Pro — requirements.txt
+# Minimal, hackathon-ready dependency set for a FastAPI backend.
+# Python 3.11+ recommended.
+
+# ----------------------------
+# Web Framework & Server
+# ----------------------------
+fastapi==0.115.6
+uvicorn[standard]==0.32.1        # [standard] includes websockets + uvloop for async speed
+
+# ----------------------------
+# Data Validation
+# ----------------------------
+pydantic==2.10.4                 # FastAPI 0.115.x works natively with Pydantic v2
+pydantic-settings==2.7.0         # BaseSettings for env-driven config (replaces python-dotenv boilerplate)
+
+# ----------------------------
+# HTTP Clients
+# ----------------------------
+httpx==0.28.1                    # Async-native HTTP client — preferred over requests for FastAPI
+requests==2.32.3                 # Sync fallback / quick scripts / data pipeline polling tasks
+
+# ----------------------------
+# Numerical & Scoring Logic
+# ----------------------------
+numpy==2.2.1                     # Visibility score math, OVATION grid manipulation (360x181 array)
+
+# ----------------------------
+# Astronomy Utilities
+# ----------------------------
+ephem==4.1.6                     # Solar zenith angle, lunar phase & illumination, day/night terminator
+
+# ----------------------------
+# Scheduling (background polling)
+# ----------------------------
+apscheduler==3.10.4              # Lightweight job scheduler for NOAA polling loops (no Celery needed)
+
+# ----------------------------
+# Environment & Config
+# ----------------------------
+python-dotenv==1.0.1             # .env file support for secrets (API keys, debug flags)
+
+# ----------------------------
+# CORS & Middleware (bundled with FastAPI/Starlette — no extra install needed)
+# ----------------------------
+# starlette is installed automatically as a FastAPI dependency
